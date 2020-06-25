@@ -28,9 +28,18 @@ namespace Elsa.Extensions
         
         public static void SetState(this JObject state, string key, object value)
         {
-            state[key] = value != null 
+            state[ToCamelCase(key)] = value != null 
                 ? JToken.FromObject(value, Serializer)
                 : null;
+        }
+
+        private string ToCamelCase(string str)
+        {
+            if(!string.IsNullOrEmpty(str) && str.Length > 1)
+            {
+                return Char.ToLowerInvariant(str[0]) + str.Substring(1);
+            }
+            return str;
         }
     }
 }

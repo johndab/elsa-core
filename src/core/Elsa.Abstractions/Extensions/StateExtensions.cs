@@ -33,7 +33,7 @@ namespace Elsa.Extensions
                 : null;
         }
 
-        private string ToCamelCase(string str)
+        private static string ToCamelCase(string str)
         {
             if(!string.IsNullOrEmpty(str) && str.Length > 1)
             {
